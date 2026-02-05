@@ -28,17 +28,20 @@ Dasturlar yaratadigan kompaniya sayti uchun to'liq backend API. Node.js, Express
 ## ⚙️ O'rnatish
 
 1. Repositoriyani clone qiling:
+
 ```bash
 git clone <repository-url>
 cd software-company-api
 ```
 
 2. Dependencies o'rnating:
+
 ```bash
 npm install
 ```
 
 3. `.env` faylni sozlang:
+
 ```bash
 cp .env.example .env
 ```
@@ -48,11 +51,13 @@ cp .env.example .env
 4. Serverni ishga tushiring:
 
 **Development rejimida:**
+
 ```bash
 npm run dev
 ```
 
 **Production rejimida:**
+
 ```bash
 npm start
 ```
@@ -62,6 +67,7 @@ Server default ravishda `http://localhost:5000` da ishga tushadi.
 ## 📚 API Dokumentatsiya
 
 API dokumentatsiyasini ko'rish uchun server ishga tushgandan keyin:
+
 ```
 http://localhost:5000/api-docs
 ```
@@ -71,6 +77,7 @@ Swagger UI orqali barcha endpointlarni test qilish mumkin.
 ## 📚 API Endpoints
 
 ### Authentication
+
 ```
 POST   /api/v1/auth/register       - Ro'yxatdan o'tish
 POST   /api/v1/auth/login          - Tizimga kirish
@@ -81,6 +88,7 @@ PUT    /api/v1/auth/updatepassword - Parolni yangilash
 ```
 
 ### Features (Xizmatlar)
+
 ```
 GET    /api/v1/features           - Barcha xizmatlar
 GET    /api/v1/features/active    - Faol xizmatlar
@@ -91,6 +99,7 @@ DELETE /api/v1/features/:id       - Xizmatni o'chirish (Admin)
 ```
 
 ### Products (Mahsulotlar)
+
 ```
 GET    /api/v1/products                    - Barcha mahsulotlar
 GET    /api/v1/products/featured/list      - Featured mahsulotlar
@@ -103,6 +112,7 @@ DELETE /api/v1/products/:id                - O'chirish (Admin)
 ```
 
 ### Team (Jamoa)
+
 ```
 GET    /api/v1/team                       - Barcha jamoa a'zolari
 GET    /api/v1/team/featured/list         - Featured a'zolar
@@ -114,6 +124,7 @@ DELETE /api/v1/team/:id                   - O'chirish (Admin)
 ```
 
 ### Technologies (Texnologiyalar)
+
 ```
 GET    /api/v1/technologies                   - Barcha texnologiyalar
 GET    /api/v1/technologies/featured/list     - Featured texnologiyalar
@@ -125,6 +136,7 @@ DELETE /api/v1/technologies/:id               - O'chirish (Admin)
 ```
 
 ### Awards (Mukofotlar)
+
 ```
 GET    /api/v1/awards                 - Barcha mukofotlar
 GET    /api/v1/awards/year/:year      - Yil bo'yicha
@@ -136,6 +148,7 @@ DELETE /api/v1/awards/:id             - O'chirish (Admin)
 ```
 
 ### Testimonials (Sharhlar)
+
 ```
 GET    /api/v1/testimonials                 - Barcha sharhlar
 GET    /api/v1/testimonials/featured/list   - Featured sharhlar
@@ -148,6 +161,7 @@ DELETE /api/v1/testimonials/:id             - O'chirish (Admin)
 ```
 
 ### Contacts (Aloqa)
+
 ```
 POST   /api/v1/contacts                  - Yangi so'rov (Public)
 GET    /api/v1/contacts                  - Barcha so'rovlar (Admin)
@@ -160,6 +174,7 @@ PUT    /api/v1/contacts/:id/assign/:uid  - Assign qilish (Admin)
 ```
 
 ### Attendance (Davomat)
+
 ```
 POST   /api/v1/attendance/checkin        - Check-in (Keldi)
 PUT    /api/v1/attendance/checkout/:id   - Check-out (Ketdi)
@@ -176,6 +191,7 @@ DELETE /api/v1/attendance/:id            - O'chirish (Admin)
 ```
 
 ### Dashboard (Statistika)
+
 ```
 GET    /api/v1/dashboard/overview        - Umumiy ko'rinish (Admin)
 GET    /api/v1/dashboard/products        - Mahsulotlar statistikasi (Admin)
@@ -190,11 +206,13 @@ GET    /api/v1/dashboard/analytics       - To'liq analytics (Admin)
 Barcha GET requestlarda quyidagi parametrlardan foydalanish mumkin:
 
 ### Pagination
+
 ```
 ?page=1&limit=10
 ```
 
 ### Sorting
+
 ```
 ?sort=name          # Ascending
 ?sort=-createdAt    # Descending
@@ -202,11 +220,13 @@ Barcha GET requestlarda quyidagi parametrlardan foydalanish mumkin:
 ```
 
 ### Field Limiting
+
 ```
 ?fields=name,description,image
 ```
 
 ### Filtering
+
 ```
 ?category=web-app
 ?isActive=true
@@ -214,6 +234,7 @@ Barcha GET requestlarda quyidagi parametrlardan foydalanish mumkin:
 ```
 
 ### Search
+
 ```
 ?search=react
 ```
@@ -223,6 +244,7 @@ Barcha GET requestlarda quyidagi parametrlardan foydalanish mumkin:
 API JWT (JSON Web Token) authentication ishlatadi.
 
 ### Login qilish:
+
 ```bash
 POST /api/v1/auth/login
 Content-Type: application/json
@@ -234,22 +256,24 @@ Content-Type: application/json
 ```
 
 Response:
+
 ```json
 {
-  "success": true,
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-  "user": {
-    "id": "...",
-    "name": "Admin User",
-    "email": "admin@example.com",
-    "role": "admin"
-  }
+	"success": true,
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+	"user": {
+		"id": "...",
+		"name": "Admin User",
+		"email": "admin@example.com",
+		"role": "admin"
+	}
 }
 ```
 
 ### Token ishlatish:
 
 Header'da token yuborish:
+
 ```
 Authorization: Bearer <token>
 ```
@@ -313,6 +337,7 @@ RATE_LIMIT_MAX_REQUESTS=100
 ## 🚀 Deployment
 
 ### Heroku
+
 ```bash
 heroku create your-app-name
 git push heroku main
@@ -322,6 +347,7 @@ heroku config:set MONGODB_URI=your_mongodb_uri
 ```
 
 ### DigitalOcean / VPS
+
 ```bash
 # PM2 bilan
 npm install -g pm2
@@ -345,4 +371,5 @@ Pull requests are welcome!
 ## 📞 Support
 
 Savollar uchun: support@yourcompany.com
+
 # Next-Developers-Team-Back-end
